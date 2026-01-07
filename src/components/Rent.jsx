@@ -28,7 +28,7 @@ const Rent = () => {
       <div className="relative z-10 pt-20 pb-64 text-center">
         <div className="max-w-4xl mx-auto px-4">
 
-        <h2 className="nunito font-bold text-[60px]">
+          <h2 className="nunito font-bold text-[60px]">
             Rent an Office
           </h2>
 
@@ -54,19 +54,17 @@ const Rent = () => {
                   key={item}
                   onClick={() => toggleOption(item)}
                   className={`relative cursor-pointer rounded-3xl  px-8 py-20  text-left transition-all
-                    ${
-                      active
-                        ? "bg-blue-50 border-blue-500"
-                        : "bg-white border-blue-300"
+                    ${active
+                      ? "bg-blue-50 border-blue-500"
+                      : "bg-white border-blue-300"
                     }
                     border hover:shadow-lg`}
                 >
                   <span
                     className={`absolute top-4 right-4 h-5 w-5 rounded-full border
-                      ${
-                        active
-                          ? "bg-blue-600 border-blue-600"
-                          : "border-blue-400"
+                      ${active
+                        ? "bg-blue-600 border-blue-600"
+                        : "border-blue-400"
                       }`}
                   />
 
@@ -114,10 +112,63 @@ const Rent = () => {
           </p>
 
           <form className="mt-8 space-y-4">
-            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Full Name" />
-            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Phone Number" />
-            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Organization Name" />
-            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Number of People" />
+            <input className=" w-full
+    px-4 py-3
+    rounded-md
+    bg-white/95
+    text-black
+    placeholder-gray-500
+    border border-gray-300
+    shadow-sm
+    focus:outline-none
+    focus:border-blue-500
+    focus:ring-2
+    focus:ring-blue-500/40
+    focus:shadow-md
+    transition-all duration-200" placeholder="Full Name" />
+            <input className=" w-full
+    px-4 py-3
+    rounded-md
+    bg-white/95
+    text-black
+    placeholder-gray-500
+    border border-gray-300
+    shadow-sm
+    focus:outline-none
+    focus:border-blue-500
+    focus:ring-2
+    focus:ring-blue-500/40
+    focus:shadow-md
+    transition-all duration-200" placeholder="Phone Number" />
+            <input className=" w-full
+    px-4 py-3
+    rounded-md
+    bg-white/95
+    text-black
+    placeholder-gray-500
+    border border-gray-300
+    shadow-sm
+    focus:outline-none
+    focus:border-blue-500
+    focus:ring-2
+    focus:ring-blue-500/40
+    focus:shadow-md
+    transition-all duration-200" placeholder="Organization Name" />
+            <input className=" w-full
+    px-4 py-3
+    rounded-md
+    bg-white/95
+    text-black
+    placeholder-gray-500
+    border border-gray-300
+    shadow-sm
+    focus:outline-none
+    focus:border-blue-500
+    focus:ring-2
+    focus:ring-blue-500/40
+    focus:shadow-md
+
+    transition-all duration-200" placeholder="Number of People" />
             <button className="mt-4 px-12 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded">
               Submit
             </button>

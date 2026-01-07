@@ -11,8 +11,8 @@ const Home = () => {
     <div>
       <Hero/>
       <Rent/>
-      <TellUs/>
       <WhyUs/>
+      <TellUs/>
     </div>
   )
 }

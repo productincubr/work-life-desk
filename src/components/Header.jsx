@@ -1,83 +1,3 @@
-// import React, { useState } from "react";
-// import logoworklife from "../assets/logoworklife.png";
-// import { Menu, X } from "lucide-react"; // install: npm i lucide-react
-
-// const Header = () => {
-//   const [activeTab, setActiveTab] = useState("Services");
-//   const [menuOpen, setMenuOpen] = useState(false);
-
-//   const tabs = ["Services", "Masterclass", "Contact Us"];
-
-//   return (
-//     <header className="sticky top-0 z-50 bg-white">
-//       <div className="flex items-center h-20 mx-4 md:mx-12 lg:mx-24 relative">
-//         <button
-//           className="md:hidden z-50"
-//           onClick={() => setMenuOpen(!menuOpen)}
-//         >
-//           {menuOpen ? <X size={28} /> : <Menu size={28} />}
-//         </button>
-
-//         <div
-//           className="
-//             absolute left-1/2 -translate-x-1/2
-//             md:static md:translate-x-0
-//           "
-//         >
-//           <img src={logoworklife} alt="Worklife Logo" className="h-12" />
-//         </div>
-
-//         <div className="hidden md:flex ml-auto bg-[#D9D9D9] rounded-4xl items-center py-3 px-3 gap-2">
-//           {tabs.map((tab) => (
-//             <button
-//               key={tab}
-//               onClick={() => setActiveTab(tab)}
-//               className={`
-//                 px-10 lg:px-16 py-2 rounded-4xl transition-all duration-300
-//                 ${
-//                   activeTab === tab
-//                     ? "bg-[#F19D38] text-white"
-//                     : "text-gray-700 hover:text-gray-900"
-//                 }
-//               `}
-//             >
-//               {tab}
-//             </button>
-//           ))}
-//         </div>
-//       </div>
-
-//      {menuOpen && (
-//         <div className="md:hidden bg-[#FFFAE4] px-6 pb-6">
-//           <div className="bg-[#D9D9D9] rounded-2xl flex flex-col gap-3 p-4">
-//             {tabs.map((tab) => (
-//               <button
-//                 key={tab}
-//                 onClick={() => {
-//                   setActiveTab(tab);
-//                   setMenuOpen(false);
-//                 }}
-//                 className={`
-//                   py-3 rounded-xl text-center transition-all
-//                   ${
-//                     activeTab === tab
-//                       ? "bg-[#F19D38] text-white"
-//                       : "text-gray-700 hover:text-gray-900"
-//                   }
-//                 `}
-//               >
-//                 {tab}
-//               </button>
-//             ))}
-//           </div>
-//         </div>
-//       )}
-//     </header>
-//   );
-// };
-
-// export default Header;
-
 
 
 import React, { useState, useEffect } from "react";
@@ -129,8 +49,8 @@ const Header = () => {
   }, [menuOpen]);
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-[#F19D38]/10 py-2">
-      <div className="flex items-center h-20 mx-4 md:mx-12 lg:mx-24 relative max-w-screen-2xl">
+    <header className="sticky top-0 z-50 bg-white shadow-md shadow-gray-200/50">
+      <div className="flex items-center h-30 mx-4 md:mx-12 lg:mx-18 relative max-w-screen-2xl">
         
         {/* Hamburger (Mobile Only) - Enhanced */}
         <button
@@ -157,22 +77,22 @@ const Header = () => {
             cursor-pointer
           "
         >
-          <img src={logoworklife} alt="Incubr Logo" className="h-12" />
+          <img src={logoworklife} alt="Incubr Logo" className="h-14" />
         </Link>
 
         {/* Desktop / Tablet Tabs */}
-        <div className="hidden md:flex ml-auto bg-gradient-to-r from-[#D9D9D9] to-[#CECECE] rounded-4xl items-center py-3 px-3 gap-2 shadow-md">
+        <div className="hidden md:flex ml-auto bg-[#e9e5e5] rounded-4xl items-center py-2 px-4 gap-2 shadow-md">
           {tabs.map((tab) => (
             <button
               key={tab.name}
               onClick={() => handleTabClick(tab)}
               className={`
-                px-10 lg:px-16 py-2 rounded-4xl transition-all duration-300
-                transform hover:scale-105 font-medium cursor-pointer
+                px-10 lg:px-18 py-2 rounded-4xl transition-all duration-300
+                transform hover:scale-105 text-[18px] font-medium cursor-pointer
                 ${
                   activeTab === tab.name
                     ? "bg-gradient-to-r from-[#F19D38] to-[#E88B28] text-white shadow-lg"
-                    : "text-gray-700 hover:text-gray-900 hover:bg-white/50 hover:shadow-md"
+                    : "text-neutral-800 hover:text-gray-900 font-medium  hover:bg-white/50 hover:shadow-md"
                 }
                 ${tab.name === "Services" && activeTab !== "Services" ? "animate-pulse-shadow" : ""}
               `}

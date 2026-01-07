@@ -1,0 +1,11 @@
+@import "tailwindcss";
+body{
+  background-color: white;
+}
+.recoleta-bold {
+  font-family: "RecoletaAlt", serif;
+  font-weight: 700;
+}
+.nunito{
+  font-family: "Nunito", sans-serif;
+}

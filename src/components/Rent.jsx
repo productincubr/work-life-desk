@@ -1,73 +1,131 @@
-import React from "react";
+import React, { useState } from "react";
+import rentMaskImage from "../assets/rentSection.png"; // THIS IMAGE ONLY
+
+const options = [
+  "Managed Office",
+  "Managed Office + Warehouse",
+  "Managed Cabins",
+  "Built to Brand Guidance",
+  "Daily Conference Room",
+  "Podcast and Shoot Studio",
+];
 
 const Rent = () => {
+  const [selected, setSelected] = useState([]);
+
+  const toggleOption = (item) => {
+    setSelected((prev) =>
+      prev.includes(item)
+        ? prev.filter((i) => i !== item)
+        : [...prev, item]
+    );
+  };
+
   return (
-    <section className="mt-24 sm:mt-36 mx-2 sm:mx-12 lg:mx-48 flex flex-col justify-center items-center">
-      <p className="nunito text-[30px] lg:mb-2 font-bold sm:text-[30px] lg:text-[40px] text-center">
-        Rent an Office
-      </p>
-      <p className="nunito text-[14px] my-8 lg:mb-16 sm:text-[22px] lg:text-[20px] w-full md:w-[70%] text-center">
-        Whether you’re a growing startup or an established enterprise, we
-        provide spaces that scale with your business.
-      </p>
-      <div className="flex flex-col sm:flex-row sm:flex-wrap justify-center items-center gap-4">
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-6">Managed Office</p>
-        </div>
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-4">
-            Managed Office + Warehouse
+    <section className="relative mt-32 overflow-hidden bg-[#F0F8F7]">
+
+      {/* ================= TOP CONTENT ================= */}
+      <div className="relative z-10 pt-20 pb-64 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+
+        <h2 className="nunito font-bold text-[60px]">
+            Rent an Office
+          </h2>
+
+          <p className="nunito mt-4 text-[25px] max-w-3xl mx-auto text-gray-600">
+            Whether you're a{" "}
+            <span className="bg-blue-100 text-blue-700 px-2 rounded">
+              growing startup
+            </span>{" "}
+            or an{" "}
+            <span className="bg-blue-100 text-blue-700 px-2 rounded">
+              established enterprise
+            </span>
+            , we provide spaces that scale with your business.
           </p>
-        </div>
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-6">Managed Cabins</p>
-        </div>
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-6">
-            Built to Brand Guidance
-          </p>
-        </div>
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-6">
-            Daily Conference Room
-          </p>
-        </div>
-        <div className="bg-[#F6F3EA] hover:shadow-2xl p-4 rounded-2xl border-2 border-black h-[150px] w-[250px]">
-          <input
-            type="checkbox"
-            value="Managed Office"
-            className="h-4 w-4 relative left-48"
-          />
-          <p className="nunito font-semibold text-lg mt-4">
-            Podcast and Shoot Studio
-          </p>
+
+          {/* CARDS */}
+          <div className="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-6 max-w-7xl mx-auto mb-[-100px]">
+            {options.map((item) => {
+              const active = selected.includes(item);
+
+              return (
+                <div
+                  key={item}
+                  onClick={() => toggleOption(item)}
+                  className={`relative cursor-pointer rounded-3xl  px-8 py-20  text-left transition-all
+                    ${
+                      active
+                        ? "bg-blue-50 border-blue-500"
+                        : "bg-white border-blue-300"
+                    }
+                    border hover:shadow-lg`}
+                >
+                  <span
+                    className={`absolute top-4 right-4 h-5 w-5 rounded-full border
+                      ${
+                        active
+                          ? "bg-blue-600 border-blue-600"
+                          : "border-blue-400"
+                      }`}
+                  />
+
+                  <p className="nunito font-semibold text-[23px]">
+                    {item}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
+
+      {/* ================= MASKED IMAGE BACKGROUND ================= */}
+      <div
+        className="absolute bottom-10 left-0 w-full h-[679px] opacity-60 object-scale-down "
+        style={{
+          backgroundImage: `url(${rentMaskImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          WebkitMaskImage: `url(${rentMaskImage})`,
+          WebkitMaskRepeat: "no-repeat",
+          WebkitMaskSize: "cover",
+          WebkitMaskPosition: "top",
+          maskImage: `url(${rentMaskImage})`,
+          maskRepeat: "no-repeat",
+          maskSize: "cover",
+          maskPosition: "top",
+        }}
+      />
+
+      {/* ================= BLUE TINT ================= */}
+      <div className="absolute bottom-0 left-0 w-full h-[520px]" />
+
+      {/* ================= FORM ================= */}
+      <div className="relative z-20 h-[520px] flex items-start justify-center text-white">
+        <div className="w-full max-w-xl px-4 text-center">
+
+          <h3 className="nunito font-bold text-[35px] text-black">
+            Tell Us What You Need
+          </h3>
+
+          <p className="text-xl  text-neutral-800 mt-1">
+            Choose your requirements and we’ll take it from there.
+          </p>
+
+          <form className="mt-8 space-y-4">
+            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Full Name" />
+            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Phone Number" />
+            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Organization Name" />
+            <input className="w-full px-4 py-3 rounded bg-white/90 text-black" placeholder="Number of People" />
+            <button className="mt-4 px-12 bg-blue-600 hover:bg-blue-700 text-white py-2.5 rounded">
+              Submit
+            </button>
+          </form>
+
+        </div>
+      </div>
+
     </section>
   );
 };
